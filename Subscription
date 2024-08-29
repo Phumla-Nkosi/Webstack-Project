@@ -1,0 +1,36 @@
+class Subscription:
+    def _init_(self, user_id, subscription_type, expiration_date):
+        self.user_id = user_id
+        self.subscription_type = subscription_type
+        self.expiration_date = expiration_date
+
+class SocialMediaApp:
+    def _init_(self):
+        self.subscriptions = {}
+
+    def create_subscription(self, user_id, subscription_type, duration):
+        expiration_date = self._calculate_expiration_date(duration)
+        subscription = Subscription(user_id, subscription_type, expiration_date)
+        self.subscriptions[user_id] = subscription
+        return subscription
+
+    def _calculate_expiration_date(self, duration):
+        # Calculate expiration date based on duration (e.g., monthly, yearly)
+        pass
+
+    def check_subscription_status(self, user_id):
+        subscription = self.subscriptions.get(user_id)
+        if subscription:
+            if subscription.expiration_date > datetime.now():
+                return "Active"
+            else:
+                return "Expired"
+        else:
+            return "No subscription"
+
+    def cancel_subscription(self, user_id):
+        if user_id in self.subscriptions:
+            del self.subscriptions[user_id]
+            return "Subscription canceled"
+        else:
+            return "No subscription to cancel"

@@ -1,0 +1,7 @@
+<div class="logo">
+  <svg viewBox="0 0 100 100">
+    <path d="M50 0L10 90H90Z" fill="#3498db"/>
+    <path d="M50 0L90 90H10Z" fill="#f1c40f"/>
+    <text x="50" y="50" font-size="24" font-family="Open Sans" fill="#fff">SP</text>
+  </svg>
+</div>
